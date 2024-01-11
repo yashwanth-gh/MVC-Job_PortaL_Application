@@ -5,10 +5,14 @@
 }
 
 :root {
+    --b: #000000;
+    --w: #ffffff;
     --c1: #d9edbf;
     --c2: #ffb996;
-    --c3: #ffcf81;
+    --c3: #EEF0E5;
     --c4: #fdffab;
+    --c5: #163020;
+    --c6: #304D30;
     --hero: "Paytone One", sans-serif;
 }
 
