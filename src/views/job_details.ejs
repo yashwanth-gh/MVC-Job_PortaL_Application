@@ -34,35 +34,45 @@
                     <strong><em>About the company : </em></strong>&nbsp;
                     <div class="col s12 m7">
                         <div class="card horizontal">
-                          <div class="card-image">
-                            <img src="/images/company.svg">
-                          </div>
-                          <div class="card-stacked">
-                            <div class="card-content">
-                              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto ratione dolor eveniet.</p>
+                            <div class="card-image">
+                                <img src="/images/company.svg">
                             </div>
-                            <div class="card-action">
-                              <a href="#">Company website</a>
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto ratione dolor
+                                        eveniet.
+                                    </p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#">
+                                        <%= jobById.companyName %> website
+                                    </a>
+                                </div>
                             </div>
-                          </div>
                         </div>
-                      </div>
+                    </div>
                 </div>
 
             </div>
             <div class="job-apply">
 
-                <p><strong><em>Company</em></strong> : <%= jobById.companyName %>
+                <p>
+                    <strong><em>Company</em></strong> : <%= jobById.companyName %>
                 </p>
-                <p><strong><em>Location</em></strong> : <%= jobById.jobLocation %>
+                <p>
+                    <strong><em>Location</em></strong> : <%= jobById.jobLocation %>
                 </p>
-                <p><strong><em>Salary</em></strong> : Upto ₹ <%= jobById.salary %>
+                <p>
+                    <strong><em>Salary</em></strong> : Upto ₹ <%= jobById.salary %>
                 </p>
-                <p><strong><em>Apply By</em></strong> : <%= jobById.lastDate %>
+                <p>
+                    <strong><em>Apply By</em></strong> : <%= jobById.lastDate %>
                 </p>
-                <p><strong><em>No. of Openings</em></strong> : <%= jobById.openings %>
+                <p>
+                    <strong><em>No. of Openings</em></strong> : <%= jobById.openings %>
                 </p>
-                <p><strong><em>No. of Applicants</em></strong> : <%= jobById.applicants.length %>
+                <p>
+                    <strong><em>No. of Applicants</em></strong> : <%= jobById.applicants.length %>
                 </p>
 
                 <div>
@@ -72,12 +82,16 @@
                 </div>
                 <div class="upd-del-btn">
                     <strong><em>Recruiter Options</em></strong>
-                    <a class="waves-effect waves-light btn-small lime lighten-6"><i class="material-icons">
-                        mode_edit
-                        </i></a>
-                    <a class="waves-effect waves-light btn-small deep-orange darken-2"><i class="material-icons">
-                        delete_forever
-                        </i></a>
+                    <a class="waves-effect waves-light btn-small lime lighten-6" href="/update/<%= jobById.id %>">
+                        <i class="material-icons">
+                            mode_edit
+                        </i>
+                    </a>
+                    <a class="waves-effect waves-light btn-small deep-orange darken-2" href="">
+                        <i class="material-icons">
+                            delete_forever
+                        </i>
+                    </a>
                 </div>
             </div>
         </div>

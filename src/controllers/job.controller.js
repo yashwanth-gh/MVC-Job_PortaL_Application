@@ -24,4 +24,9 @@ export default class JobController{
         const jobById = JobModel.getJobById(id);
         res.render('job_details',{jobById});
     }
+
+    getUpdateJob(req,res){
+        const id = req.params.id;
+        res.send("test")
+    }
 }

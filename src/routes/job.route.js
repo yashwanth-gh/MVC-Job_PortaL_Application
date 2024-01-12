@@ -9,5 +9,6 @@ router.route('/postjob').post(jobController.postPostJob);
 
 router.route("/jobs").get(jobController.getAllJobs);
 router.route("/job/:id").get(jobController.getSingleJob);
+router.route("/update/:id").get(jobController.getUpdateJob);
 
 export default router;
