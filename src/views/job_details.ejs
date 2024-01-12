@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="job-container">
+        <div class="job-title">
+            <h2>
+                <%= jobById.companyName%>
+            </h2>
+            <h4>
+                <%= jobById.designation %> job in <%= jobById.jobLocation %>
+            </h4>
+        </div>
+        <div class="job-details">
+            <div class="job-desc">
+                <div>
+                    <strong><em>Posted on : </em></strong>&nbsp;
+                    <%= jobById.postedDate %>
+                </div>
+                <div>
+                    <strong><em>Responsibilities : </em></strong>&nbsp;<br>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates dolores eius est minus
+                        soluta. Unde natus explicabo ducimus porro ipsum tempora ullam dolorum eveniet animi. Lorem
+                        ipsum dolor sit, amet consectetur adipisicing elit. Accusantium, veniam.
+                    </p>
+                </div>
+                <div>
+                    <strong><em>Skills : </em></strong>&nbsp;
+                    <% jobById.skills.forEach(skill=>{ %>
+                        <span class="tag is-success is-medium">
+                            <%= skill %>
+                        </span>
+                        <% }) %>
+                </div>
+                <div>
+                    <strong><em>About the company : </em></strong>&nbsp;
+                    <div class="col s12 m7">
+                        <div class="card horizontal">
+                          <div class="card-image">
+                            <img src="/images/company.svg">
+                          </div>
+                          <div class="card-stacked">
+                            <div class="card-content">
+                              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto ratione dolor eveniet.</p>
+                            </div>
+                            <div class="card-action">
+                              <a href="#">Company website</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+
+            </div>
+            <div class="job-apply">
+
+                <p><strong><em>Company</em></strong> : <%= jobById.companyName %>
+                </p>
+                <p><strong><em>Location</em></strong> : <%= jobById.jobLocation %>
+                </p>
+                <p><strong><em>Salary</em></strong> : Upto ₹ <%= jobById.salary %>
+                </p>
+                <p><strong><em>Apply By</em></strong> : <%= jobById.lastDate %>
+                </p>
+                <p><strong><em>No. of Openings</em></strong> : <%= jobById.openings %>
+                </p>
+                <p><strong><em>No. of Applicants</em></strong> : <%= jobById.applicants.length %>
+                </p>
+
+                <div>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Apply for Job
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+                <div class="upd-del-btn">
+                    <strong><em>Recruiter Options</em></strong>
+                    <a class="waves-effect waves-light btn-small lime lighten-6"><i class="material-icons">
+                        mode_edit
+                        </i></a>
+                    <a class="waves-effect waves-light btn-small deep-orange darken-2"><i class="material-icons">
+                        delete_forever
+                        </i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

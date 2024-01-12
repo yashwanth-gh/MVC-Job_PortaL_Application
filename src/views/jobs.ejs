@@ -8,21 +8,33 @@
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">
+
+              <i class="material-icons right">info</i>
               <strong>
                 <%= job.companyName %>
               </strong>
-              <i class="material-icons right">info</i>
+
             </span>
-            <p class="title-details"><i class="material-icons">location_on</i><em>
-                <%= job.jobLocation %>
-              </em> &nbsp;&nbsp;<span class="">
-                <%= job.designation %>
-              </span>
+            <p>
+            <div class="card-title-center">
+              <div class="title-details">
+                <i class="material-icons">location_on</i>
+                <em>
+                  <%= job.jobLocation %>
+                </em> &nbsp;&nbsp;
+                <span class="">
+                  <%= job.designation %>
+                </span>
+              </div>
+              <div>
+                <span class="tag is-primary">&nbsp;Active</span>
+              </div>
+            </div>
             </p>
 
           </div>
           <div class="card-action">
-            <a href="/job/<%= job.id %>"><button type="submit">More details</button></a>
+          <a href="/job/<%=job.id%>"><button type="submit">More details</button></a>
           </div>
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">

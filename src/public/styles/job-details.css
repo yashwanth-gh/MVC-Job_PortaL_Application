@@ -1,0 +1,88 @@
+.job-container {
+  background-color: var(--w);
+  max-width: 800px;
+  margin-inline: auto;
+  border-radius: 10px;
+
+  .job-title {
+    text-align: center;
+    background-color: var(--c3);
+    padding: 1rem 2rem;
+    color: var(--b);
+    border-radius: 10px;
+
+    h2 {
+      margin-bottom: 0.5rem;
+    }
+    h4 {
+      color: rgb(125, 125, 125);
+    }
+    @media (max-width: 767px) {
+      h2 {
+        font-size: 2rem;
+      }
+      h4 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .job-details {
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+
+    @media (max-width: 767px) {
+      flex-direction: column-reverse;
+      gap: 3rem;
+      padding: 1rem 1rem;
+    }
+  }
+
+  .job-apply {
+    padding-left: 1.5rem;
+    width: 90%;
+    p {
+      margin: 0.4rem 0;
+    }
+
+    @media (max-width: 767px) {
+      border: none;
+      text-align: center;
+    }
+  }
+
+  .job-desc {
+    /* padding-inline: 0.5rem; */
+    padding: 0 1rem 0 0.5rem;
+    border-right: 2px solid var(--b);
+    text-align: left;
+    div {
+      margin-bottom: 0.4rem;
+    }
+
+    .card{
+        background-color: var(--c3);
+        a{
+            color:var(--b);
+        }
+    }
+
+    @media (max-width: 767px) {
+      border: none;
+      text-align: center;
+    }
+  }
+
+  .upd-del-btn{
+    margin-top: 3rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    justify-content: center;
+    align-items: center;
+  }
+}

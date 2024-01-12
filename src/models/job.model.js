@@ -61,12 +61,24 @@ export default class JobModel {
         job_description.push(newJob);
         // console.log(job_description);
     }
+
+    //^ ------- Get job by id from array -------
+    static getJobById(id){
+        const jobId = Number(id);
+        const data =  job_description.find(job=>job.id === jobId);
+        if(!data){
+            console.log("Error :: getJobById");
+            return null;
+        }
+        return data;
+    }
 }
 
 
 //^ ------------- Job-description data array ------------------
 const job_description = [
     {
+        id:1,
         companyName: 'MicroLabs',
         jobLocation: 'Mumbai',
         category: 'Non-Tech',
@@ -79,6 +91,7 @@ const job_description = [
         applicants: [],
     },
     {
+        id:2,
         companyName: 'Paytm',
         jobLocation: 'Bengaluru',
         category: 'Tech',
@@ -91,6 +104,7 @@ const job_description = [
         applicants: [],
     },
     {
+        id:3,
         companyName: 'Accenture',
         jobLocation: 'Hyderabad',
         category: 'Non-Tech',
@@ -99,6 +113,19 @@ const job_description = [
         openings: '4',
         lastDate: '2024-02-11',
         skills: ["Communication","Leadership"],
+        postedDate: '20/01/2024',
+        applicants: [],
+    },
+    {
+        id:4,
+        companyName: 'L&T Infotech',
+        jobLocation: 'Chennai',
+        category: 'Tech',
+        designation: 'DevOps',
+        salary: '150000',
+        openings: '3',
+        lastDate: '2024-03-21',
+        skills: ["Docker","Kubernetes","MERN"],
         postedDate: '20/01/2024',
         applicants: [],
     }

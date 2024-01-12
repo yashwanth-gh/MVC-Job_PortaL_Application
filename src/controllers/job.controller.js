@@ -18,4 +18,10 @@ export default class JobController{
         const jobs = JobModel.getJob();
         res.render('jobs',{jobs})
     }
+
+    getSingleJob(req,res){
+        const id = req.params.id;
+        const jobById = JobModel.getJobById(id);
+        res.render('job_details',{jobById});
+    }
 }
