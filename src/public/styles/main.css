@@ -60,6 +60,9 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
+button{
+    cursor: pointer;
+}
 .navbar{
     background-color: var(--c3);
 }

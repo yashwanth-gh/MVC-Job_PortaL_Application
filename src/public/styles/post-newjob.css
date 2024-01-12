@@ -1,6 +1,6 @@
 .form-container{
     padding:1rem 0.5rem;
-    background-color:var(--c3);
+    background-color:var(--w);
     border: 2px solid var(--b);
     border-radius: 1rem;
     display: flex;

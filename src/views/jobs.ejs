@@ -1,25 +1,52 @@
 <div class="container">
-    <div class="jobs-flex-container">
-        <% if(jobs) { %>
-            <% jobs.forEach(job=>{%>
-                <div class="card small sticky-action">
-                    <div class="card-image waves-effect waves-block waves-light">
-                      <img class="activator" src="images/h1.svg">
-                    </div>
-                    <div class="card-content">
-                      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                      <p><a href="#">This is a link</a></p>
-                    </div>
-                    <div class="card-action">
-                        <button>Apply</button>
-                    </div>
-                    <div class="card-reveal">
-                      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                    </div>
-                  </div>
+  <div class="jobs-flex-container">
+    <% if(jobs) { %>
+      <% jobs.forEach(job=>{%>
+        <div class="card medium sticky-action">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="images/h1.svg">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">
+              <strong>
+                <%= job.companyName %>
+              </strong>
+              <i class="material-icons right">info</i>
+            </span>
+            <p class="title-details"><i class="material-icons">location_on</i><em>
+                <%= job.jobLocation %>
+              </em> &nbsp;&nbsp;<span class="">
+                <%= job.designation %>
+              </span>
+            </p>
 
+          </div>
+          <div class="card-action">
+            <a href="/job/<%= job.id %>"><button type="submit">More details</button></a>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">
+              <%= job.companyName %><i class="material-icons right">close</i>
+            </span>
+            <p> <strong>Type :&nbsp;</strong>
+              <%= job.category %>
+            </p>
+            <p><strong>Job :&nbsp;</strong>
+              <%= job.designation %>
+            </p>
+            <p><strong>Salary :&nbsp;</strong>upto ₹<%= job.salary %>
+            </p>
+            <p><strong>Skills :&nbsp;</strong>
+              <% job.skills.forEach(skill=>{ %>
+                <span class="tag is-success">
+                  <%= skill %>
+                </span>
                 <% }) %>
-                    <% } %>
-    </div>
+            </p>
+          </div>
+        </div>
+
+        <% }) %>
+          <% } %>
+  </div>
 </div>

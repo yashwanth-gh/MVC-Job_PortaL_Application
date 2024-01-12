@@ -7,4 +7,6 @@ router.route("/").get(jobController.getLandingPage)
 router.route('/postjob').get(jobController.getPostJob);
 router.route('/postjob').post(jobController.postPostJob);
 
+router.route("/jobs").get(jobController.getAllJobs);
+
 export default router;

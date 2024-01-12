@@ -11,7 +11,11 @@ export default class JobController{
 
     postPostJob(req,res){
         JobModel.setJob(req.body);
+        res.redirect("/jobs")
+    }
+
+    getAllJobs(req,res){
         const jobs = JobModel.getJob();
-        res.render('jobs',{jobs});
+        res.render('jobs',{jobs})
     }
 }
