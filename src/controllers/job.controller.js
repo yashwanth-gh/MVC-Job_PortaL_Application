@@ -27,6 +27,14 @@ export default class JobController{
 
     getUpdateJob(req,res){
         const id = req.params.id;
-        res.send("test")
+        const jobById = JobModel.getJobById(id);
+        res.render("update-job",{job:jobById})
+    }
+
+    postUpdateJob(req,res){
+        const id = req.params.id;
+        const data = req.body;
+        JobModel.updateJob(id,data);
+        res.redirect("/jobs")
     }
 }
