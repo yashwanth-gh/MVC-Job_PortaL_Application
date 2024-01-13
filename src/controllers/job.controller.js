@@ -1,40 +1,52 @@
 import JobModel from "../models/job.model.js";
 
-export default class JobController{
-    getLandingPage(req,res){
+export default class JobController {
+    getLandingPage(req, res) {
         res.render('landing_page');
     }
 
-    getPostJob(req,res){
+    getPostJob(req, res) {
         res.render('post-newjob');
     }
 
-    postPostJob(req,res){
+    postPostJob(req, res) {
         JobModel.setJob(req.body);
         res.redirect("/jobs")
     }
 
-    getAllJobs(req,res){
+    getAllJobs(req, res) {
         const jobs = JobModel.getJob();
-        res.render('jobs',{jobs})
+        if (!jobs) return res.status(404).render('404'); //TODO:
+        res.render('jobs', { jobs })
     }
 
-    getSingleJob(req,res){
+    getSingleJob(req, res) {
         const id = req.params.id;
         const jobById = JobModel.getJobById(id);
-        res.render('job_details',{jobById});
+        if (!jobById) return res.status(404).render('404');
+        res.render('job_details', { jobById });
     }
 
-    getUpdateJob(req,res){
+    getUpdateJob(req, res) {
         const id = req.params.id;
         const jobById = JobModel.getJobById(id);
-        res.render("update-job",{job:jobById})
+        if (!jobById) return res.status(404).render('404');
+        res.render("update-job", { job: jobById })
     }
 
-    postUpdateJob(req,res){
+    postUpdateJob(req, res) {
         const id = req.params.id;
         const data = req.body;
-        JobModel.updateJob(id,data);
+        JobModel.updateJob(id, data);
         res.redirect("/jobs")
+    }
+
+    deleteJob(req, res) {
+        const id = req.params.id;
+        const jobById = JobModel.getJobById(id);
+        if (!jobById) return res.status(404).render('404');
+
+        JobModel.deleteJob(id);
+        res.redirect("/jobs"); //FIXME: may couse error in future bcz static file send us to /jobs page
     }
 }

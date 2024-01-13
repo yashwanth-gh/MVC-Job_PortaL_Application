@@ -24,7 +24,7 @@ export default class JobModel {
         this.skills = _skills;
         this.jobPostedDate = _jobPostedDate;
         this.applicants = _applicants;
-        this.companyImage = '';
+        this.companyImage = 'logo_nil.svg';
     }
     //^ ------- Get job description array -------
     static getJob() {
@@ -107,6 +107,12 @@ export default class JobModel {
             postedDate,
         };
         // console.log(job_description[jobIndex])
+    }
+
+    //^ ------- delete job object from Array -------
+    static deleteJob(id){
+        const index = job_description.findIndex(job =>job.id === id);
+        job_description.splice(index,1);
     }
 }
 

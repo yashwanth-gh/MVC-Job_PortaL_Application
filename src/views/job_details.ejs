@@ -33,9 +33,9 @@
                 <div>
                     <strong><em>About the company : </em></strong>&nbsp;
                     <div class="col s12 m7">
-                        <div class="card horizontal">
+                        <div class="card horizontal card-horizontal">
                             <div class="card-image">
-                                    <img src="/images/company.svg">
+                                <img src="/images/<%= jobById.companyImage %>">
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">
@@ -81,17 +81,20 @@
                     </button>
                 </div>
                 <div class="upd-del-btn">
-                    <strong><em>Recruiter Options</em></strong>
+                    <strong><em>Recruiter Options :&nbsp;</em></strong>
                     <a class="waves-effect waves-light btn-small lime lighten-6" href="/update/<%= jobById.id %>">
                         <i class="material-icons">
                             mode_edit
                         </i>
                     </a>
-                    <a class="waves-effect waves-light btn-small deep-orange darken-2" href="">
+                    <a class="waves-effect waves-light btn-small deep-orange darken-2">
+                        <button  onclick="deleteProduct('<%= jobById.id %>')">
                         <i class="material-icons">
                             delete_forever
                         </i>
+                    </button>
                     </a>
+
                 </div>
             </div>
         </div>

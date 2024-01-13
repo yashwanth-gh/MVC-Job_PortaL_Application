@@ -63,3 +63,9 @@ button{
 .navbar{
     background-color: var(--c3);
 }
+
+.page-not-found{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
