@@ -109,10 +109,29 @@ export default class JobModel {
         // console.log(job_description[jobIndex])
     }
 
-    //^ ------- delete job object from Array -------
+    //^ ------- Delete job object from Array -------
     static deleteJob(id){
         const index = job_description.findIndex(job =>job.id === id);
         job_description.splice(index,1);
+    }
+
+    //^ ------- Add Applicants to Specific Jobs -------
+    static addApplicants(id,{applicantName,applicantEmail,applicantPhone}){
+        const index = job_description.findIndex(job =>job.id === id);
+        if(!index)return;
+        job_description[index]?.applicants.push({
+            applicantName,
+            applicantEmail,
+            applicantPhone,
+        })
+
+    }
+
+    //^ ------- Get Applicants of Specific Jobs -------
+    static getApplicants(id){
+        const data = job_description.find(job => job.id === id);
+        if(!data)return null;
+        return data?.applicants;
     }
 }
 

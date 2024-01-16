@@ -76,16 +76,25 @@
   }
 
   .upd-del-btn{
+    width: 100%;
     margin-top: 3rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
-    justify-content: start;
-    align-items: center;
+    justify-content: center;
+    align-items: start;
 
+    .recruiter_btn{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
     @media (max-width: 767px) {
-    flex-direction: row;
+      text-align: left;
+      align-items: start;
     }
   }
 }

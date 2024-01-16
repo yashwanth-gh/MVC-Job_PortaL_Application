@@ -49,4 +49,19 @@ export default class JobController {
         JobModel.deleteJob(id);
         res.redirect("/jobs"); //FIXME: may couse error in future bcz static file send us to /jobs page
     }
+
+    postApplicants(req,res){
+        const id = req.params.id;
+        const data = req.body;
+        if(id){
+            JobModel.addApplicants(id,data);
+        }
+        res.redirect("/jobs");
+    }
+
+    getApplicants(req,res){
+        const id = req.params.id;
+        const jobApplicants = JobModel.getApplicants(id);
+        res.send(jobApplicants);
+    }
 }
