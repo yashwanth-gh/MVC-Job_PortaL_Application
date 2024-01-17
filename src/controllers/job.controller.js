@@ -1,3 +1,4 @@
+import { sendConformationMail } from "../middlewares/sendMail.middleware.js";
 import JobModel from "../models/job.model.js";
 
 export default class JobController {
@@ -50,12 +51,15 @@ export default class JobController {
         res.redirect("/jobs"); //FIXME: may couse error in future bcz static file send us to /jobs page
     }
 
-    postApplicants(req,res){
+    async postApplicants(req,res){
         const id = req.params.id;
         const fname = req.file.filename;
         const data = req.body;
         if(id){
             JobModel.addApplicants(id,data,fname);
+            const job = JobModel.getJobById(id);
+            console.log("Sending Conformation email to user!")
+            await sendConformationMail(data,job);
         }
         res.redirect("/jobs");
     }
