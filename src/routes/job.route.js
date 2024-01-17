@@ -1,5 +1,6 @@
 import express from 'express';
 import JobController from '../controllers/job.controller.js';
+import resumeUpload from '../middlewares/resumeUpload.middleware.js';
 
 const router = express.Router();
 const jobController = new JobController();
@@ -17,5 +18,5 @@ router.route("/jobs/:id/applicants").get(jobController.getApplicants)
 //* ========---------- Post routes -----------=========
 router.route("/update/:id").post(jobController.postUpdateJob);
 router.route('/postjob').post(jobController.postPostJob);
-router.route('/jobs/:id/applicants').post(jobController.postApplicants);
+router.route('/jobs/:id/applicants').post(resumeUpload.single("applicantResume"),jobController.postApplicants);
 export default router;

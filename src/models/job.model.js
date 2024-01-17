@@ -116,15 +116,17 @@ export default class JobModel {
     }
 
     //^ ------- Add Applicants to Specific Jobs -------
-    static addApplicants(id,{applicantName,applicantEmail,applicantPhone}){
+    static addApplicants(id,{applicantName,applicantEmail,applicantPhone},applicantResume){
         const index = job_description.findIndex(job =>job.id === id);
         if(!index)return;
+        const applicantId = job_description[index]?.applicants.length+1;
         job_description[index]?.applicants.push({
+            applicantId,
             applicantName,
             applicantEmail,
             applicantPhone,
+            applicantResume,
         })
-
     }
 
     //^ ------- Get Applicants of Specific Jobs -------

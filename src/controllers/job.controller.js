@@ -52,9 +52,10 @@ export default class JobController {
 
     postApplicants(req,res){
         const id = req.params.id;
+        const fname = req.file.filename;
         const data = req.body;
         if(id){
-            JobModel.addApplicants(id,data);
+            JobModel.addApplicants(id,data,fname);
         }
         res.redirect("/jobs");
     }
@@ -62,6 +63,7 @@ export default class JobController {
     getApplicants(req,res){
         const id = req.params.id;
         const jobApplicants = JobModel.getApplicants(id);
-        res.send(jobApplicants);
+        console.log(jobApplicants);
+        res.render('applicants',{allApplicants:jobApplicants});
     }
 }

@@ -3,6 +3,7 @@ import jobRouter from './src/routes/job.route.js';
 
 import expressEjsLayouts from 'express-ejs-layouts';
 import path from 'path';
+
 //* --> Creating Express Server:
 const server = express();
 
