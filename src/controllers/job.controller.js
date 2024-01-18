@@ -3,7 +3,8 @@ import JobModel from "../models/job.model.js";
 
 export default class JobController {
     getLandingPage(req, res) {
-        res.render('landing_page');
+        const userName = req.session.userEmail;
+        res.render('landing_page',{userName});
     }
 
     getPostJob(req, res) {
