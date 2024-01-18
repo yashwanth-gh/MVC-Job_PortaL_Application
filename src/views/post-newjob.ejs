@@ -2,6 +2,17 @@
   <div class="container">
     <form action="/postjob" method="post">
       <div class="form-container">
+        <% if(errors) {  %>
+          <div class="notification is-warning">
+
+            <ul >
+              <li ><h4>Warning!</h4></li>
+              <% errors.forEach(err => { %>
+                <li >⚠️ <%= err.msg %></li>
+              <% }) %>
+            </ul>
+          </div>
+        <% } %>
         <div class="post-title">
           <h3>Post new Job</h3>
         </div>

@@ -111,4 +111,8 @@
     text-align: center;
  
   }
+
+  .modal label{
+    color: var(--b);
+  }
 }

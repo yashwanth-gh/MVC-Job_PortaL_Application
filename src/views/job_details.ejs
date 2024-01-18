@@ -87,17 +87,17 @@
                                 <h4>Apply with one click!</h4>
                                 <label for="applicantName">Full Name : </label>
                                 <input class="input is-medium" type="text" placeholder="John Doe" name="applicantName"
-                                    id="applicantName">
+                                    id="applicantName" required>
                                 <label for="applicantEmail">Email : </label>
                                 <input class="input is-medium" type="email" placeholder="johndoe@hotmail.com"
-                                    name="applicantEmail" id="applicantEmail">
+                                    name="applicantEmail" id="applicantEmail" required>
                                 <label for="applicantPhone">Phone Number : </label>
-                                <input class="input is-medium" type="tel" placeholder="9161111165" name="applicantPhone"
-                                    id="applicantPhone">
+                                <input class="input is-medium" type="tel" placeholder="9161111165" pattern="\+91 \d{10}" name="applicantPhone"
+                                    id="applicantPhone" value="+91 " title="Please enter a valid 10-digit phone number" required>
                                 <label for="applicantResume"> Upload Resume : </label>
-                                <input type="file" name="applicantResume" id="applicantResume">
+                                <input type="file" name="applicantResume" id="applicantResume" required>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn waves-effect waves-light" onclick="M.toast({html: 'Success! Applied'})">Submit</button>
+                                    <button type="submit" class="btn waves-effect waves-light">Submit</button>
                                 </div>
                             </form>
                         </div>

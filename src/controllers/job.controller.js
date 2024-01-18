@@ -7,7 +7,7 @@ export default class JobController {
     }
 
     getPostJob(req, res) {
-        res.render('post-newjob');
+        res.render('post-newjob', { errors: null });
     }
 
     postPostJob(req, res) {
@@ -32,10 +32,12 @@ export default class JobController {
         const id = req.params.id;
         const jobById = JobModel.getJobById(id);
         if (!jobById) return res.status(404).render('404');
-        res.render("update-job", { job: jobById })
+
+        res.render("update-job", { job: jobById, errors: null })
     }
 
     postUpdateJob(req, res) {
+
         const id = req.params.id;
         const data = req.body;
         JobModel.updateJob(id, data);
@@ -51,23 +53,23 @@ export default class JobController {
         res.redirect("/jobs"); //FIXME: may couse error in future bcz static file send us to /jobs page
     }
 
-    async postApplicants(req,res){
+    async postApplicants(req, res) {
         const id = req.params.id;
         const fname = req.file.filename;
         const data = req.body;
-        if(id){
-            JobModel.addApplicants(id,data,fname);
+        if (id) {
+            JobModel.addApplicants(id, data, fname);
             const job = JobModel.getJobById(id);
             console.log("Sending Conformation email to user!")
-            await sendConformationMail(data,job);
+            await sendConformationMail(data, job);
         }
         res.redirect("/jobs");
     }
 
-    getApplicants(req,res){
+    getApplicants(req, res) {
         const id = req.params.id;
         const jobApplicants = JobModel.getApplicants(id);
-        console.log(jobApplicants);
-        res.render('applicants',{allApplicants:jobApplicants});
+        // console.log(jobApplicants);
+        res.render('applicants', { allApplicants: jobApplicants });
     }
 }

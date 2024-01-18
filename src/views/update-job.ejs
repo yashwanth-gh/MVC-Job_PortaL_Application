@@ -1,10 +1,22 @@
 <section>
     <div class="container">
+      
       <form action="/update/<%= job.id %>" method="post">
         <div class="form-container">
           <div class="post-title">
             <h3>Edit Job</h3>
           </div>
+          <% if(errors) {  %>
+            <div class="notification is-warning">
+  
+              <ul >
+                <li ><h4>Warning!</h4></li>
+                <% errors.forEach(err => { %>
+                  <li >⚠️ <%= err.msg %></li>
+                <% }) %>
+              </ul>
+            </div>
+          <% } %>
           <div class="form-full">
             <div>
               <label class="label" for="companyName">Company Name</label>
