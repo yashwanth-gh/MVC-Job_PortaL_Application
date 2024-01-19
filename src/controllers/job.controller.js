@@ -78,4 +78,9 @@ export default class JobController {
         const user = req.session.user;
         res.render('applicants', { allApplicants: jobApplicants ,user});
     }
+
+    getRecruiterDashboard(req,res){
+        const user = req.session.user;
+        res.render('recruiter_dashboard', {user});
+    }
 }

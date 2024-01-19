@@ -8,6 +8,7 @@ const jobController = new JobController();
 //* ========---------- Get routes -----------=========
 router.route("/").get(jobController.getLandingPage)
 router.route('/postjob').get(auth,jobController.getPostJob);
+router.route('/dashboard').get(auth,jobController.getRecruiterDashboard);
 
 router.route("/jobs").get(jobController.getAllJobs);
 router.route("/jobs/:id").get(jobController.getSingleJob);

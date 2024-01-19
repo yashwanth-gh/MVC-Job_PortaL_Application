@@ -69,6 +69,9 @@
 
                     <div class="navbar-dropdown">
                         <% if(user){ %>
+                            <a class="navbar-item" href="/dashboard">
+                                Dashboard
+                            </a>
                             <a class="navbar-item" href="/logout" onclick="M.toast({ html: 'Succesfully Logged out!' })">
                                 Logout
                             </a>
@@ -102,6 +105,11 @@
                         </div>
                     <% } else { %>
                         <div class="buttons">
+                            <a class="button is-rounded" href="/dashboard" style="border: 1.5px solid black;">
+                                <span class="material-symbols-outlined">
+                                    person
+                                    </span>
+                            </a>
                             <a class="button is-black" href="/logout" onclick="M.toast({ html: 'Succesfully Logged out!' })">
                                 <strong>Logout</strong>
                             </a>
