@@ -12,7 +12,7 @@
             <div class="job-desc">
                 <div>
                     <strong><em>Posted By : </em></strong>&nbsp;
-                    <%= jobById.recruiter %>
+                    <strong><%= jobById.recruiter %></strong>
                 </div>
                 <div>
                     <strong><em>Posted on : </em></strong>&nbsp;
@@ -80,10 +80,18 @@
                 </p>
 
                 <div>
-                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">
-                        Apply
-                        <i class="material-icons right">send</i>
-                    </a>
+                    <% if(calculateRemainingDays(jobById.lastDate)>=0){ %>
+                        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">
+                            Apply
+                            <i class="material-icons right">send</i>
+                        </a>
+                    <% } else { %>
+                        <a class="waves-effect waves-light btn" onclick="M.toast({html:'Job is not active'})">
+                            Apply
+                            <i class="material-icons right">send</i>
+                        </a>
+                    <% } %>
+
                     <!-- Modal Structure -->
                     <div id="modal1" class="modal">
                         <div class="modal-content">

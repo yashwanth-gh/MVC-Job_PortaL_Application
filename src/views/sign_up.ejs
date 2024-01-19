@@ -3,30 +3,30 @@
     <div class="sign-up_container">
         <form action="/signup" method="post">
             <div class="form-container">
-                <% if(errors) { %>
-                    <div class="notification is-warning">
-
-                        <ul>
-                            <li>
-                                <h4>Warning!</h4>
-                            </li>
-                            <% errors.forEach(err=> { %>
-                                <li>⚠️ <%= err.msg %>
-                                </li>
-                                <% }) %>
-                        </ul>
-                    </div>
-                <% } %>
-                <% if(accountError) { %>
-                    <div class="notification is-warning">
-                        <p>⚠️ <%= accountError %> </p>
-                    </div>
-                <% } %>
+               
                         <div class="sign-up_title">
                             <h3>Sign Up to create an accout</h3>
                             <p>Easily : Grow your career!</p>
                         </div>
-
+                        <% if(errors) { %>
+                            <div class="notification is-warning">
+        
+                                <ul>
+                                    <li>
+                                        <h4>Warning!</h4>
+                                    </li>
+                                    <% errors.forEach(err=> { %>
+                                        <li>⚠️ <%= err.msg %>
+                                        </li>
+                                        <% }) %>
+                                </ul>
+                            </div>
+                        <% } %>
+                        <% if(accountError) { %>
+                            <div class="notification is-warning">
+                                <p>⚠️ <%= accountError %> </p>
+                            </div>
+                        <% } %>
                         <div class="form-full">
                         <div>
                             <label class="label" for="userEmail">Email : </label>

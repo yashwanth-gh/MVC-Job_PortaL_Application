@@ -33,6 +33,26 @@ server.use(session({
     cookie: { secure: false }
 }))
 
+// ~----------------------------------------------------------------------------
+//^ --Function to calculate remaining days for each jobs
+// Assuming you have a function to calculate remaining days
+function calculateRemainingDays(jobLastDate) {
+    // Your implementation to calculate remaining days
+    // For example:
+    const lastDate = new Date(jobLastDate);
+    const currentDate = new Date();
+    const remainingDays = Math.ceil((lastDate - currentDate) / (1000 * 60 * 60 * 24));
+    if(remainingDays<0){
+        return 'ended';
+    }
+    return remainingDays;
+}
+  
+  // Assuming you're using Express, make the function available to your templates
+  server.locals.calculateRemainingDays = calculateRemainingDays;
+  // ~----------------------------------------------------------------------------
+  
+
 server.use(jobRouter);
 server.use(authRouter)
 

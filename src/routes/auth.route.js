@@ -1,6 +1,7 @@
 import express from 'express';
 import AuthController from '../controllers/auth.controller.js';
 import { authValidation } from '../middlewares/authValidation.middleware.js';
+import { setLastVisit } from '../middlewares/lastVisit.middleware.js';
 
 const router = express.Router();
 const authController = new AuthController()

@@ -3,18 +3,18 @@ import UserAuthModel from "../models/user.model.js";
 export default class AuthController {
     getSignUp(req, res, next) {
         const user = req.session.user || null;
-        res.render('sign_up', { errors: null, accountError: null ,user});
+        res.render('sign_up', { errors: null, accountError: null ,user:null});
     }
 
     getSignIn(req, res, next) {
         const user = req.session.user || null;
-        res.render('sign_in', { errors: null, accountError: null,user });
+        res.render('sign_in', { errors: null, accountError: null,user:null });
     }
     postSignUp(req, res, next) {
         const modelMessage = UserAuthModel.addUser(req.body);
         if (modelMessage) {
             const user = req.session.user || null;
-            return res.render('sign_up', { errors: null, accountError: modelMessage ,user});
+            return res.render('sign_up', { errors: null, accountError: modelMessage ,user:null});
         }
         res.redirect("/signin");
     }
@@ -45,6 +45,7 @@ export default class AuthController {
                 res.redirect("/");
             }
         })
+        res.clearCookie('lastVisit')
 
     }
 

@@ -32,7 +32,13 @@
                 </span>
               </div>
               <div>
-                <span class="tag is-primary">&nbsp;Active</span>
+                <% if(calculateRemainingDays(job.lastDate)==='ended'){ %>
+                  <span class="tag is-danger">&nbsp;Ended
+                  </span>
+                  <% } else { %>
+                    <span class="tag is-primary">&nbsp;Active
+                  </span>
+                  <% } %>
               </div>
             </div>
             </p>

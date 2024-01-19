@@ -33,8 +33,8 @@ export const authValidation = async (req, res, next) => {
     var errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-        if (req.path === '/signup') return res.render('sign_up',{errors:errors.array(),accountError:null});
-        if (req.path === '/signin') return res.render('sign_in',{errors:errors.array(),accountError:null});
+        if (req.path === '/signup') return res.render('sign_up',{errors:errors.array(),accountError:null,user:null});
+        if (req.path === '/signin') return res.render('sign_in',{errors:errors.array(),accountError:null,user:null});
     }
     next();
 }

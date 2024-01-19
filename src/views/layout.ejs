@@ -14,6 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!--^ ---------------- Google Icons ---------------------->
     <link rel="stylesheet"
@@ -31,6 +34,7 @@
     <link rel="stylesheet" href="/styles/post-newjob.css">
     <link rel="stylesheet" href="/styles/jobs.css">
     <link rel="stylesheet" href="/styles/job-details.css">
+    <link rel="stylesheet" href="/styles/recruiter_dashboard.css">
 </head>
 
 <body>
@@ -62,9 +66,9 @@
                     <a class="navbar-link">
                         <% if(user){ %>
                             <%= user?.userName %>
-                        <% } else { %>
-                            Recruiter
-                        <% } %>
+                                <% } else { %>
+                                    Recruiter
+                                    <% } %>
                     </a>
 
                     <div class="navbar-dropdown">
@@ -72,22 +76,23 @@
                             <a class="navbar-item" href="/dashboard">
                                 Dashboard
                             </a>
-                            <a class="navbar-item" href="/logout" onclick="M.toast({ html: 'Succesfully Logged out!' })">
+                            <a class="navbar-item" href="/logout"
+                                onclick="M.toast({ html: 'Succesfully Logged out!' })">
                                 Logout
                             </a>
-                        <% } else { %>
-                            <a class="navbar-item" href="/signin">
-                                Log in
-                            </a>
-                        <% } %>
+                            <% } else { %>
+                                <a class="navbar-item" href="/signin">
+                                    Log in
+                                </a>
+                                <% } %>
 
-                        <a class="navbar-item" href="/postjob">
-                            Post New Job
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item" href="https://github.com/yashwanth-gh" target="_blank">
-                            About
-                        </a>
+                                    <a class="navbar-item" href="/postjob">
+                                        Post New Job
+                                    </a>
+                                    <hr class="navbar-divider">
+                                    <a class="navbar-item" href="https://github.com/yashwanth-gh" target="_blank">
+                                        About
+                                    </a>
                     </div>
                 </div>
             </div>
@@ -103,18 +108,19 @@
                                 Log in
                             </a>
                         </div>
-                    <% } else { %>
-                        <div class="buttons">
-                            <a class="button is-rounded" href="/dashboard" style="border: 1.5px solid black;">
-                                <span class="material-symbols-outlined">
-                                    person
+                        <% } else { %>
+                            <div class="buttons">
+                                <a class="button is-rounded" href="/dashboard" style="border: 1.5px solid black;">
+                                    <span class="material-symbols-outlined">
+                                        person
                                     </span>
-                            </a>
-                            <a class="button is-black" href="/logout" onclick="M.toast({ html: 'Succesfully Logged out!' })">
-                                <strong>Logout</strong>
-                            </a>
-                        </div>
-                    <% } %>
+                                </a>
+                                <a class="button is-black" href="/logout"
+                                    onclick="M.toast({ html: 'Succesfully Logged out!' })">
+                                    <strong>Logout</strong>
+                                </a>
+                            </div>
+                            <% } %>
 
                 </div>
             </div>

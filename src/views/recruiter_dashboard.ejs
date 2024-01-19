@@ -1,3 +1,182 @@
 <div class="container">
-    hijklgbjkgjklgjkljkgjkgjkl
+    <div class="dashboard_container">
+        <div class="dashboard_headline">
+            <h2>Dashboard</h2>
+        </div>
+        <div class="parent_grid">
+            <div class="children_grid one">
+                <p class="children_grid-title">Tech jobs</p>
+                <table class="responsive-table highlight">
+                    <thead>
+                        <tr>
+                            <th>Job title</th>
+                            <th>Company</th>
+                            <th>salary upto</th>
+                            <th>Posted date</th>
+                            <th >Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <% if(jobsArray){ %>
+                            <% jobsArray.forEach(techJob=>{ %>
+                                <% if(techJob.category === 'Tech'){ %>
+                                    <tr>
+                                        <td>
+                                            <%= techJob.designation %>
+                                        </td>
+                                        <td>
+                                            <%= techJob.companyName %>
+                                        </td>
+                                        <td>
+                                            ₹ <%= techJob.salary %>
+                                        </td>
+                                        <td>
+                                            <%= techJob.postedDate %>
+                                        </td>
+                                        <td>
+                                            <a class="upt_btn bttn" href="/update/<%= techJob.id %>">
+                                                <i class="material-icons">
+                                                    mode_edit
+                                                </i>
+                                            </a>
+                                       
+                                            <a class="del_btn bttn" href="/deleteJob/<%= techJob.id %>" > 
+                                                <i class="material-icons">
+                                                    delete_forever
+                                                </i>
+                                            </a>
+                                        </td>
+
+                                    </tr>
+                                    <% } %>
+                                <% }) %>
+                            <% } else { %>
+                                <p class="dash_msg">You have not posted any jobs</p>
+                        <% } %>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="children_grid two">
+                <p class="children_grid-title">Non -Tech jobs</p>
+                <table class="responsive-table highlight">
+                    <thead>
+                        <tr>
+                            <th>Job title</th>
+                            <th>Company</th>
+                            <th>salary upto</th>
+                            <th>Posted date</th>
+                            <th >Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <% if(jobsArray){ %>
+                            <% jobsArray.forEach(techJob=>{ %>
+                                <% if(!(techJob.category === 'Tech')){ %>
+                                    <tr>
+                                        <td>
+                                            <%= techJob.designation %>
+                                        </td>
+                                        <td>
+                                            <%= techJob.companyName %>
+                                        </td>
+                                        <td>
+                                            ₹ <%= techJob.salary %>
+                                        </td>
+                                        <td>
+                                            <%= techJob.postedDate %>
+                                        </td>
+                                        <td>
+                                            <a class="upt_btn bttn" href="/update/<%= techJob.id %>">
+                                                <i class="material-icons">
+                                                    mode_edit
+                                                </i>
+                                            </a>
+                                       
+                                            <a class="del_btn bttn" href="/deleteJob/<%= techJob.id %>" >
+                                                <i class="material-icons">
+                                                    delete_forever
+                                                </i>
+                                            </a>
+                                        </td>
+
+                                    </tr>
+                                    <% } %>
+                                <% }) %>
+                            <% } else { %>
+                                <p class="dash_msg">You have not posted any jobs</p>
+                        <% } %>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="children_grid three">
+                <div class="profile_container">
+                    <div>
+                        <img src="/images/user.svg" alt="">
+                    </div>
+                    <div>
+                        <p><strong> <%= user.userName %></strong></p>
+                        <p><%= user.userEmail %></p>
+                        <p>Recruiter</p>
+                        <% if(locals.lastVisit) {%>
+                                last visit: <%= locals.lastVisit %>
+                      <% } %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="children_grid four">
+                <p class="children_grid-title">Jobs stats</p>
+                <table class="responsive-table highlight">
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Job title</th>
+                            <th>Location</th>
+                            <th>Openings</th>
+                            <th>Applied</th>
+                            <th>Remaining days</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <% if(jobsArray){ %>
+                            <% jobsArray.forEach(job=>{ %>
+                                    <tr>
+                                        <td>
+                                            <%= job.companyName %>
+                                        </td>
+                                        <td>
+                                            <%= job.designation %>
+                                        </td>
+                                        <td>
+                                            <%= job.jobLocation%>
+                                        </td>
+                                        <td>
+                                            <%= job.openings %>
+                                        </td>
+                                        <td>
+                                            <%= job.applicants.length %>
+                                        </td>
+                                        
+                                        <td>
+                                            <%= calculateRemainingDays(job.lastDate) %>
+                                        </td>
+
+                                    </tr>
+                                <% }) %>
+                            <% } else { %>
+                                <p class="dash_msg">You have not posted any jobs</p>
+                        <% } %>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>

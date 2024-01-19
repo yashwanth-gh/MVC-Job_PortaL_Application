@@ -142,6 +142,16 @@ export default class JobModel {
         if (!data) return null;
         return data?.applicants;
     }
+
+    //^ ------- Get All job posted by logged in recruiter -------
+    static getRecruitersPostedJobs(recruiterEmail){
+        const recruitersJobs = job_description.filter(job=>job.recruiterEmail === recruiterEmail);
+        if(!recruitersJobs){
+            console.log("Error :: model :: getRecruitersPostedJobs");
+            return null;
+        }
+        return recruitersJobs;
+    }
 }
 
 
@@ -187,7 +197,7 @@ const job_description = [
         designation: 'DevOps',
         salary: '150000',
         openings: '3',
-        lastDate: '2024-03-21',
+        lastDate: '2024-02-21',
         skills: ["Docker", "Kubernetes", "GitHub"],
         postedDate: '20/01/2024',
         applicants: [],
@@ -203,7 +213,7 @@ const job_description = [
         designation: 'SDE-1',
         salary: '50000',
         openings: '12',
-        lastDate: '2024-03-01',
+        lastDate: '2024-01-17',
         skills: ["React", "NodeJS", "MongoDB", "DevOps"],
         postedDate: '20/01/2024',
         applicants: [],

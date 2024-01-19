@@ -81,6 +81,7 @@ export default class JobController {
 
     getRecruiterDashboard(req,res){
         const user = req.session.user;
-        res.render('recruiter_dashboard', {user});
+        const jobsArray = JobModel.getRecruitersPostedJobs(user?.userEmail);
+        res.render('recruiter_dashboard', {jobsArray,user});
     }
 }
