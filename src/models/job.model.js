@@ -27,8 +27,8 @@ export default class JobModel {
         this.postedDate = _jobPostedDate;
         this.applicants = _applicants;
         this.companyImage = 'logo_nil.svg';
-        this.recruiter =_recruiter;
-        this.recruiterEmail =_recruiterEmail;
+        this.recruiter = _recruiter;
+        this.recruiterEmail = _recruiterEmail;
     }
     //^ ------- Get job description array -------
     static getJob() {
@@ -36,7 +36,7 @@ export default class JobModel {
     }
 
     //^ ------- Add job object to Array -------
-    static setJob(data,recruiter,recruiterEmail) {
+    static setJob(data, recruiterDetails) {
         const {
             companyName,
             jobLocation,
@@ -51,6 +51,7 @@ export default class JobModel {
         const currentDate = new Date();
         const postedDate = currentDate.toLocaleDateString('en-GB', { year: 'numeric', month: '2-digit', day: '2-digit' });
         const applicants = [];
+        const { userName: recruiter, userEmail: recruiterEmail } = recruiterDetails;
         const newJob = new JobModel(
             id,
             companyName,
@@ -109,23 +110,23 @@ export default class JobModel {
             salary,
             openings,
             lastDate,
-            skills:skillArray,
+            skills: skillArray,
             postedDate,
         };
         // console.log(job_description[jobIndex])
     }
 
     //^ ------- Delete job object from Array -------
-    static deleteJob(id){
-        const index = job_description.findIndex(job =>job.id === id);
-        job_description.splice(index,1);
+    static deleteJob(id) {
+        const index = job_description.findIndex(job => job.id === id);
+        job_description.splice(index, 1);
     }
 
     //^ ------- Add Applicants to Specific Jobs -------
-    static addApplicants(id,{applicantName,applicantEmail,applicantPhone},applicantResume){
-        const index = job_description.findIndex(job =>job.id === id);
-        if(!index)return;
-        const applicantId = job_description[index]?.applicants.length+1;
+    static addApplicants(id, { applicantName, applicantEmail, applicantPhone }, applicantResume) {
+        const index = job_description.findIndex(job => job.id === id);
+        if (!index) return;
+        const applicantId = job_description[index]?.applicants.length + 1;
         job_description[index]?.applicants.push({
             applicantId,
             applicantName,
@@ -136,9 +137,9 @@ export default class JobModel {
     }
 
     //^ ------- Get Applicants of Specific Jobs -------
-    static getApplicants(id){
+    static getApplicants(id) {
         const data = job_description.find(job => job.id === id);
-        if(!data)return null;
+        if (!data) return null;
         return data?.applicants;
     }
 }
@@ -158,9 +159,9 @@ const job_description = [
         skills: ["LLM", "Python", "Big Data"],
         postedDate: '20/01/2024',
         applicants: [],
-        companyImage:'google.svg',
-        recruiter:"Yashwanth",
-        recruiterEmail:"yashwanthbm362002@gmail.com",
+        companyImage: 'google.svg',
+        recruiter: "Yashwanth",
+        recruiterEmail: "yashwanthbm362002@gmail.com",
     },
     {
         id: 'f9e4a5c1-6e6e-495c-85bb-01c6e7e9e76d',
@@ -174,9 +175,9 @@ const job_description = [
         skills: ["Communication", "Leadership"],
         postedDate: '20/01/2024',
         applicants: [],
-        companyImage:'accenture.svg',
-        recruiter:"Yashwanth",
-        recruiterEmail:"yashwanthbm362002@gmail.com",
+        companyImage: 'accenture.svg',
+        recruiter: "Yashwanth",
+        recruiterEmail: "yashwanthbm362002@gmail.com",
     },
     {
         id: '2eabf4f2-6e6e-495c-834c-e8072857ce18',
@@ -190,9 +191,9 @@ const job_description = [
         skills: ["Docker", "Kubernetes", "GitHub"],
         postedDate: '20/01/2024',
         applicants: [],
-        companyImage:'microsoft.svg',
-        recruiter:"Yashwanth",
-        recruiterEmail:"yashwanthbm362002@gmail.com",
+        companyImage: 'microsoft.svg',
+        recruiter: "Yashwanth",
+        recruiterEmail: "yashwanthbm362002@gmail.com",
     },
     {
         id: 'bc3d91d3-8a7a-4f53-834c-e870ea5990fc',
@@ -206,8 +207,8 @@ const job_description = [
         skills: ["React", "NodeJS", "MongoDB", "DevOps"],
         postedDate: '20/01/2024',
         applicants: [],
-        companyImage:'paytm.svg',
-        recruiter:"Yashwanth",
-        recruiterEmail:"yashwanthbm362002@gmail.com",
+        companyImage: 'paytm.svg',
+        recruiter: "Yashwanth",
+        recruiterEmail: "yashwanthbm362002@gmail.com",
     },
 ]

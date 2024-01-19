@@ -54,19 +54,30 @@
                     Home
                 </a>
 
-                <a class="navbar-item">
+                <a class="navbar-item" href="/jobs">
                     Jobs
                 </a>
 
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
-                        Recruiter
+                        <% if(user){ %>
+                            <%= user?.userName %>
+                        <% } else { %>
+                            Recruiter
+                        <% } %>
                     </a>
 
                     <div class="navbar-dropdown">
-                        <a class="navbar-item" href="">
-                            Logout
-                        </a>
+                        <% if(user){ %>
+                            <a class="navbar-item" href="/logout" onclick="M.toast({ html: 'Succesfully Logged out!' })">
+                                Logout
+                            </a>
+                        <% } else { %>
+                            <a class="navbar-item" href="/signin">
+                                Log in
+                            </a>
+                        <% } %>
+
                         <a class="navbar-item" href="/postjob">
                             Post New Job
                         </a>
@@ -80,14 +91,23 @@
 
             <div class="navbar-end">
                 <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-black" href="/signup">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-light" href="/signin">
-                            Log in
-                        </a>
-                    </div>
+                    <% if(!user){ %>
+                        <div class="buttons">
+                            <a class="button is-black" href="/signup">
+                                <strong>Sign up</strong>
+                            </a>
+                            <a class="button is-light" href="/signin">
+                                Log in
+                            </a>
+                        </div>
+                    <% } else { %>
+                        <div class="buttons">
+                            <a class="button is-black" href="/logout" onclick="M.toast({ html: 'Succesfully Logged out!' })">
+                                <strong>Logout</strong>
+                            </a>
+                        </div>
+                    <% } %>
+
                 </div>
             </div>
         </div>

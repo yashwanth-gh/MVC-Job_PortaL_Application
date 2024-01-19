@@ -8,6 +8,7 @@ const authController = new AuthController()
 //* -- Get routes
 router.route("/signup").get(authController.getSignUp);
 router.route("/signin").get(authController.getSignIn);
+router.route("/logout").get(authController.logout);
 
 //* -- Post routes
 router.route("/signup").post(authValidation,authController.postSignUp);

@@ -1,31 +1,52 @@
 import UserAuthModel from "../models/user.model.js";
 
-export default class AuthController{
-    getSignUp(req,res,next){
-        res.render('sign_up',{errors:null,accountError:null});
+export default class AuthController {
+    getSignUp(req, res, next) {
+        const user = req.session.user || null;
+        res.render('sign_up', { errors: null, accountError: null ,user});
     }
 
-    getSignIn(req,res,next){
-        res.render('sign_in',{errors:null,accountError:null});
+    getSignIn(req, res, next) {
+        const user = req.session.user || null;
+        res.render('sign_in', { errors: null, accountError: null,user });
     }
-    postSignUp(req,res,next){
+    postSignUp(req, res, next) {
         const modelMessage = UserAuthModel.addUser(req.body);
-        if(modelMessage){
-            return res.render('sign_up',{errors:null,accountError:modelMessage});
+        if (modelMessage) {
+            const user = req.session.user || null;
+            return res.render('sign_up', { errors: null, accountError: modelMessage ,user});
         }
         res.redirect("/signin");
     }
 
-    postSignIn(req,res,next){
+    postSignIn(req, res, next) {
         const modelMessage = UserAuthModel.checkUserAccount(req.body);
-        if(modelMessage){
-            return res.render('sign_in',{errors:null,accountError:modelMessage});
+        if (modelMessage) {
+            const user = req.session.user || null;
+            return res.render('sign_in', { errors: null, accountError: modelMessage,user });
         }
         const user = UserAuthModel.getAccount(req.body.userEmail);
-        req.session.userEmail = user.userEmail;
-        req.session.userName = user.userName;
+
+        //* -- storing data in session 
+        console.log(user)
+        req.session.user = user;
+
         res.redirect("/")
     }
 
-    
+    logout(req, res) {
+
+        //* -- clearing stored data in locals 
+        req.session.user = null;
+        req.session.destroy((err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.redirect("/");
+            }
+        })
+
+    }
+
+
 }
