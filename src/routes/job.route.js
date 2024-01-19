@@ -1,13 +1,13 @@
 import express from 'express';
 import JobController from '../controllers/job.controller.js';
 import resumeUpload from '../middlewares/resumeUpload.middleware.js';
-import { postJobValidation } from '../middlewares/applyJobValidation.middleware.js';
-
+import { postJobValidation } from '../middlewares/postJobValidation.middleware.js';
+import {auth} from '../middlewares/auth.middleware.js'
 const router = express.Router();
 const jobController = new JobController();
 //* ========---------- Get routes -----------=========
 router.route("/").get(jobController.getLandingPage)
-router.route('/postjob').get(jobController.getPostJob);
+router.route('/postjob').get(auth,jobController.getPostJob);
 
 router.route("/jobs").get(jobController.getAllJobs);
 router.route("/jobs/:id").get(jobController.getSingleJob);

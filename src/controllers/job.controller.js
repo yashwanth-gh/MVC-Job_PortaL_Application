@@ -12,7 +12,7 @@ export default class JobController {
     }
 
     postPostJob(req, res) {
-        JobModel.setJob(req.body);
+        JobModel.setJob(req.body,req.session.userName,req.session.userEmail);
         res.redirect("/jobs")
     }
 
@@ -26,7 +26,8 @@ export default class JobController {
         const id = req.params.id;
         const jobById = JobModel.getJobById(id);
         if (!jobById) return res.status(404).render('404');
-        res.render('job_details', { jobById });
+        const recruiterEmail = req.session.userEmail;
+        res.render('job_details', { jobById,recruiterEmail });
     }
 
     getUpdateJob(req, res) {

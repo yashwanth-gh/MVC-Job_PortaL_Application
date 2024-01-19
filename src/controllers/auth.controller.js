@@ -21,7 +21,9 @@ export default class AuthController{
         if(modelMessage){
             return res.render('sign_in',{errors:null,accountError:modelMessage});
         }
-        req.session.userEmail = req.body.userEmail;
+        const user = UserAuthModel.getAccount(req.body.userEmail);
+        req.session.userEmail = user.userEmail;
+        req.session.userName = user.userName;
         res.redirect("/")
     }
 

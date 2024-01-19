@@ -11,6 +11,10 @@
         <div class="job-details">
             <div class="job-desc">
                 <div>
+                    <strong><em>Posted By : </em></strong>&nbsp;
+                    <%= jobById.recruiter %>
+                </div>
+                <div>
                     <strong><em>Posted on : </em></strong>&nbsp;
                     <%= jobById.postedDate %>
                 </div>
@@ -104,6 +108,8 @@
                     </div>
                 </div>
 
+                <!--^ This can only be seen if You have posted this Job only -->
+                <% if(jobById.recruiterEmail === recruiterEmail){ %>
                 <div class="upd-del-btn">
                     <strong><em>Recruiter Options :&nbsp;</em></strong>
                     <div>
@@ -128,6 +134,12 @@
                     </div>
 
                 </div>
+                <% } else {  %>
+                    <div class="upd-del-btn">
+                        <em><strong> *Update, Delete and View applicants buttons only visible if you posted this job</em></strong>
+                    </div>
+                <% } %>
+
             </div>
         </div>
 

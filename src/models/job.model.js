@@ -12,7 +12,9 @@ export default class JobModel {
         _lastDate,
         _skills,
         _jobPostedDate,
-        _applicants) {
+        _applicants,
+        _recruiter,
+        _recruiterEmail) {
         this.id = _id;
         this.companyName = _companyName;
         this.jobLocation = _jobLocation;
@@ -22,9 +24,11 @@ export default class JobModel {
         this.openings = _openings;
         this.lastDate = _lastDate;
         this.skills = _skills;
-        this.jobPostedDate = _jobPostedDate;
+        this.postedDate = _jobPostedDate;
         this.applicants = _applicants;
         this.companyImage = 'logo_nil.svg';
+        this.recruiter =_recruiter;
+        this.recruiterEmail =_recruiterEmail;
     }
     //^ ------- Get job description array -------
     static getJob() {
@@ -32,7 +36,7 @@ export default class JobModel {
     }
 
     //^ ------- Add job object to Array -------
-    static setJob(data) {
+    static setJob(data,recruiter,recruiterEmail) {
         const {
             companyName,
             jobLocation,
@@ -58,7 +62,9 @@ export default class JobModel {
             lastDate,
             skillArray,
             postedDate,
-            applicants
+            applicants,
+            recruiter,
+            recruiterEmail,
         );
 
         job_description.push(newJob);
@@ -153,6 +159,8 @@ const job_description = [
         postedDate: '20/01/2024',
         applicants: [],
         companyImage:'google.svg',
+        recruiter:"Yashwanth",
+        recruiterEmail:"yashwanthbm362002@gmail.com",
     },
     {
         id: 'f9e4a5c1-6e6e-495c-85bb-01c6e7e9e76d',
@@ -167,6 +175,8 @@ const job_description = [
         postedDate: '20/01/2024',
         applicants: [],
         companyImage:'accenture.svg',
+        recruiter:"Yashwanth",
+        recruiterEmail:"yashwanthbm362002@gmail.com",
     },
     {
         id: '2eabf4f2-6e6e-495c-834c-e8072857ce18',
@@ -181,6 +191,8 @@ const job_description = [
         postedDate: '20/01/2024',
         applicants: [],
         companyImage:'microsoft.svg',
+        recruiter:"Yashwanth",
+        recruiterEmail:"yashwanthbm362002@gmail.com",
     },
     {
         id: 'bc3d91d3-8a7a-4f53-834c-e870ea5990fc',
@@ -195,5 +207,7 @@ const job_description = [
         postedDate: '20/01/2024',
         applicants: [],
         companyImage:'paytm.svg',
+        recruiter:"Yashwanth",
+        recruiterEmail:"yashwanthbm362002@gmail.com",
     },
 ]

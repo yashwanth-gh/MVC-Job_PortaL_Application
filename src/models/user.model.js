@@ -31,6 +31,11 @@ export default class UserAuthModel {
         }
     }
 
+    static getAccount(userEmail){
+        const userAccount = users.find(user=>user.userEmail === userEmail);
+        return userAccount;
+    }
+
 }
 
 const users = [
