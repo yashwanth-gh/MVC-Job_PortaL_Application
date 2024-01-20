@@ -12,7 +12,9 @@ This MVC-based Job Portal Application provides a comprehensive platform for both
 
 ## Installation 🛠️
 1. Clone the repository: `git clone https://github.com/your_username/JobPortal.git`
-2. Install dependencies: `npm install`
+2. Install dependencies (make sure you are in correct repo): `npm install`
+3. Run this command in terminal: `nodemon server.js`
+
 
 ## Usage 🖥️
 1. Start the server: `npm start`
