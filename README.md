@@ -3,6 +3,9 @@
 ## Overview
 This MVC-based Job Portal Application provides a comprehensive platform for both recruiters and job seekers. Built using Node.js, Express.js, and MongoDB, the app offers a streamlined and efficient hiring process.
 
+## YouTube Demonstration 🎥
+Watch the project in action on YouTube: [Project Demonstration](https://www.youtube.com/watch?v=A90Lmfe1djc)
+
 ## Features 🚀
 - **User Authentication:** Secure user authentication using express-session and bcrypt.
 - **Validation:** Robust input validation with express-validator for enhanced data integrity.
