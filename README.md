@@ -15,7 +15,7 @@ Watch the project in action on YouTube: [Project Demonstration](https://www.yout
 
 ## Installation 🛠️
 1. Clone the repository: `git clone https://github.com/your_username/JobPortal.git`
-2. Install dependencies (make sure you are in correct repo): `npm install`
+2. Install dependencies (make sure you are in correct directory): `npm install`
 3. Run this command in terminal: `nodemon server.js`
 
 
